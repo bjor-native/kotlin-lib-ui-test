@@ -1,25 +1,27 @@
 import libui.ktx.*
 
 fun main() = appWindow(
-    title = "Hello",
+    title = "Check list meeting room",
     width = 320,
-    height = 240
+    height = 240,
 ) {
     vbox {
-        lateinit var scroll: TextArea
+        lateinit var cbRooms: Combobox
+        val listMeetingRooms = listOf("Moscow", "Paris", "Madrid")
 
-        button("libui говорит: click me!") {
-            action {
-                scroll.append("""
-                    |Hello, World!  Ciao, mondo!
-                    |Привет, мир!  你好，世界！
-                    |
-                    |""".trimMargin())
+        form {
+            cbRooms = combobox {
+                listMeetingRooms.forEach {
+                    item(it)
+                }
             }
         }
-        scroll = textarea {
-            readonly = true
-            stretchy = true
+        button("Enter") {
+            action {
+                when (cbRooms.value) {
+                    cbRooms.value -> windowCheck(listMeetingRooms.elementAt(cbRooms.value))
+                }
+            }
         }
     }
 }
