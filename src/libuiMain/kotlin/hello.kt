@@ -5,21 +5,28 @@ fun main() = appWindow(
     width = 320,
     height = 240,
 ) {
+    lateinit var cbRooms: Combobox
+    val listMeetingRooms = listOf("Moscow", "Paris", "Madrid")
     vbox {
-        lateinit var cbRooms: Combobox
-        val listMeetingRooms = listOf("Moscow", "Paris", "Madrid")
-
-        form {
+        group("Выбери переговорку") {
             cbRooms = combobox {
                 listMeetingRooms.forEach {
                     item(it)
                 }
+                value = 0
             }
         }
-        button("Enter") {
-            action {
-                when (cbRooms.value) {
-                    cbRooms.value -> windowCheck(listMeetingRooms.elementAt(cbRooms.value))
+        hbox {
+            button("Enter") {
+                action {
+                    when (cbRooms.value) {
+                        cbRooms.value -> windowCheck(listMeetingRooms.elementAt(cbRooms.value))
+                    }
+                }
+            }
+            button("Send report") {
+                action {
+
                 }
             }
         }

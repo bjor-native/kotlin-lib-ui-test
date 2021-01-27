@@ -8,29 +8,31 @@ fun windowCheck(name: String) = appWindow(
     ) {
     vbox {
         lateinit var checkList: Combobox
-        val listProblems = listOf("Codec", "Camera", "Network")
+        val listProblems = listOf("Codec", "Camera", "Network", "Cable management")
 
-        form {
-            checkList = combobox {
-                listProblems.forEach {
-                    item(it)
-                }
+        checkList = combobox {
+            listProblems.forEach {
+                item(it)
             }
+            value = 0
         }
         hbox {
-            button("Works") {
+            val btnWorks = button("Works") {
                 action {
-
                 }
             }
-            button("Not works") {
+            val btnNWorks = button("Not works") {
                 action {
-
                 }
             }
-            button("Send report") {
-                action {
 
+            checkList.action {
+                if (checkList.value == 3) {
+                    btnWorks.text = "Clean"
+                    btnNWorks.text = "Not clean"
+                } else {
+                    btnWorks.text = "Works"
+                    btnNWorks.text = "Not works"
                 }
             }
         }
