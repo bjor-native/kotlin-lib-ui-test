@@ -1,5 +1,5 @@
 import libui.ktx.*
-import utils.readAllText
+import mailservice.MailService
 
 fun main() = appWindow(
     title = "Check list meeting room",
@@ -31,12 +31,6 @@ fun main() = appWindow(
             }
             button("Send report") {
                 action {
-
-                }
-            }
-            button("Show log") {
-                action {
-
                 }
             }
         }

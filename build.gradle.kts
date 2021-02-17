@@ -26,6 +26,8 @@ kotlin {
     val libuiMain by sourceSets.getting {
         dependencies {
             implementation("com.github.msink:libui:0.1.8")
+            implementation ("io.ktor:ktor-client-core:1.5.1")
+            implementation ("io.ktor:ktor-client-cio:1.5.1")
         }
     }
 }

@@ -1,18 +1,6 @@
 import libui.ktx.*
-import platform.CoreServices.pUserName
 import platform.Foundation.NSFullUserName
-import platform.Foundation.NSUserName
-import platform.darwin.time_value
-import platform.darwin.time_value_t
-import platform.darwin.user
-import platform.posix.FILE
-import platform.posix.timezone_
-import platform.posix.user_from_uid
-import utils.writeAllLines
 import utils.writeAllText
-import kotlin.math.absoluteValue
-import kotlin.time.ExperimentalTime
-import kotlin.time.hours
 
 fun windowCheck(name: String) = appWindow(
     title = name,
